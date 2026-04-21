@@ -1,0 +1,30 @@
+import React from 'react'
+import { Outlet } from 'react-router'
+import Navbar from '../../features/dashboard/ui/components/Navbar'
+import { Group, Panel } from 'react-resizable-panels'
+import Player from '../../features/player/ui/component/player'
+import LeftPanel from '../../features/dashboard/ui/components/LeftPanel'
+import RightPanel from '../../features/dashboard/ui/components/RightPanel'
+
+const DashboardLayout = () => {
+  return (
+    <div className='h-screen bg-black w-screen overflow-x-hidden'>
+      <Navbar/>
+
+      <div className='h-[80%]'>
+              <Group className='flex gap-2' >
+        <Panel maxSize={"20%"} minSize={"15%"} className='bg-[#121212] rounded-xl p-5 ' ><LeftPanel/></Panel>
+        <Panel className='bg-[#121212] rounded-xl p-5 ' ><Outlet/></Panel>
+        <Panel maxSize={"20%"} minSize={"15%"} className='bg-[#121212] rounded-xl p-5 '><RightPanel/></Panel>
+      </Group>
+      </div>
+
+      <Player/>
+
+
+      
+    </div>
+  )
+}
+
+export default DashboardLayout
