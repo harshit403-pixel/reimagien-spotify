@@ -6,9 +6,9 @@ import { store } from "../../../app/store/store";
 export let usePlayer = ()=>{
     let audioRef = useRef (new Audio());
 
-    let { currentPlayingSong, isPlaying } = useSelector((store)=> store.player)
-    console.log(currentPlayingSong)
-    
+    let { currentPlayingSong, isPlaying, currentIndex, queue } = useSelector((store)=> store.player)
+    const currentSong = queue[currentIndex];
+
 
     useEffect(()=>{
         if (!currentPlayingSong){return}
@@ -17,6 +17,17 @@ export let usePlayer = ()=>{
         audioRef.current.src = currentPlayingSong.url
         audioRef.current.play()}
     },[currentPlayingSong])
+
+    useEffect(()=>{
+        if(!currentPlayingSong){return}
+        else{
+        if(!isPlaying){
+            audioRef.current.pause()
+        }
+        else{
+            audioRef.current.play()
+        }}
+    },[isPlaying])
 }
 
 

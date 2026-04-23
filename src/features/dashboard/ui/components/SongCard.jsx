@@ -1,7 +1,8 @@
 import React from "react";
 import { FaPlay } from "react-icons/fa";
 import { useDashboard } from "../../hooks/useDashboard";
-import { playNewSong } from "../../../player/state/playerSlice.jsx";
+import { playNewSong } from "../../../player/state/playerSlice.jsx.jsx";
+import Footer from "./Footer.jsx";
 
 const MusicCard = ({ data }) => {
     let {dispatch} = useDashboard()
@@ -34,6 +35,7 @@ const MusicCard = ({ data }) => {
       <p className="text-gray-400 text-sm mt-1 truncate">
         {data.artist}
       </p>
+      
     </div>
   );
 };

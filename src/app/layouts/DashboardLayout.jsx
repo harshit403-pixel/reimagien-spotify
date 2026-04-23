@@ -5,8 +5,19 @@ import { Group, Panel } from 'react-resizable-panels'
 import Player from '../../features/player/ui/component/player'
 import LeftPanel from '../../features/dashboard/ui/components/LeftPanel'
 import RightPanel from '../../features/dashboard/ui/components/RightPanel'
+import { useSelector } from 'react-redux'
+import { allSongs } from '../../features/dashboard/api/songsApi'
 
 const DashboardLayout = () => {
+   let { currentPlayingSong} = useSelector((store)=> store.player)
+     let smallSongArr = []
+     smallSongArr.push(currentPlayingSong)
+
+     let songs = allSongs()
+    let oneSong =  songs.filter((elem,index)=> index < 1)
+ 
+     
+
   return (
     <div className='h-screen bg-black w-screen overflow-x-hidden'>
       <Navbar/>
@@ -15,7 +26,21 @@ const DashboardLayout = () => {
               <Group className='flex gap-2' >
         <Panel maxSize={"20%"} minSize={"15%"} className='bg-[#121212] rounded-xl p-5 ' ><LeftPanel/></Panel>
         <Panel className='bg-[#121212] rounded-xl p-5 ' ><Outlet/></Panel>
-        <Panel maxSize={"20%"} minSize={"15%"} className='bg-[#121212] rounded-xl p-5 '><RightPanel/></Panel>
+        <Panel maxSize={"20%"} minSize={"15%"} className='bg-[#121212] rounded-xl p-5 '>
+          {
+            smallSongArr?.filter((elem) => elem && elem.url).length > 0 ? (
+              smallSongArr
+                .filter((elem) => elem && elem.url)
+                .map((elem) => (
+                  <RightPanel key={elem.url} song={elem} />
+                ))
+            ) : (
+              oneSong.map((elem)=> <RightPanel key={elem.url} song={elem} />)
+            )
+          }
+            
+
+        </Panel>
       </Group>
       </div>
 

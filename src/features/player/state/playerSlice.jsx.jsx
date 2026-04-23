@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 let playerSlice = createSlice({
     name:"playerSlice",
     initialState:{
+        queue:[],
         currentPlayingSong:null,
         isPlaying:false
     },
@@ -10,11 +11,12 @@ let playerSlice = createSlice({
         playNewSong:(state,action)=>{
             state.currentPlayingSong = action.payload
             state.isPlaying = true
+            state.queue.push(action.payload)
         },
         play:(state)=>{
             state.isPlaying = true
         },
-        pause:()=>{
+        pause:(state)=>{
 
             state.isPlaying = false
         }

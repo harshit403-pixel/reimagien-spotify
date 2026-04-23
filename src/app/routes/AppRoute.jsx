@@ -5,6 +5,9 @@ import Login from '../../features/auth/ui/pages/Login'
 import Register from '../../features/auth/ui/pages/Register'
 import DashboardLayout from '../layouts/DashboardLayout'
 import HomePage from '../../features/dashboard/ui/pages/HomePage'
+import PremiumPage from '../../features/dashboard/ui/pages/PremuimPage'
+import DownloadPage from '../../features/dashboard/ui/pages/DownloadPage'
+import NotificationPage from '../../features/dashboard/ui/pages/NotificationPage'
 
 const AppRoute = () => {
 
@@ -28,6 +31,18 @@ const AppRoute = () => {
                 {
                     path:"",
                     element:<HomePage/>
+                },
+                {
+                    path:"premium",
+                    element:<PremiumPage/>
+                },
+                {
+                    path:"download",
+                    element:<DownloadPage/>
+                },
+                {
+                    path:"notifications",
+                    element:<NotificationPage/>
                 }
             ]
         }

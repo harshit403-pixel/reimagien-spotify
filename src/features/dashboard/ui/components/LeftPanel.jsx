@@ -19,7 +19,7 @@ const playlists = [
 
 const LeftPanel = () => {
   return (
-    <div className="w-[300px] h-full bg-[#121212] text-white p-4 rounded-lg flex flex-col">
+    <div className=" h-full bg-[#121212] text-white p-4 rounded-lg flex flex-col">
       
       {/* Header */}
       <div className="flex items-center justify-between mb-4">

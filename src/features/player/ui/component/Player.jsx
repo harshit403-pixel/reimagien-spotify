@@ -10,16 +10,33 @@ import {
 import { FiVolume2 } from "react-icons/fi";
 import { MdOutlinePlaylistPlay } from "react-icons/md";
 import { usePlayer, usePlayerDispatch } from "../../hooks/usePlayer";
-import { pause, play } from "../../state/playerSlice.jsx";
+import { playNewSong, pause, play } from "../../../player/state/playerSlice.jsx";
 import { useSelector } from "react-redux";
 import { store } from "../../../../app/store/store.jsx";
 import SideSong from "../pages/SideSong.jsx";
+import RightPanel from "../../../dashboard/ui/components/RightPanel.jsx";
 
 const Player = () => {
-     let { currentPlayingSong} = useSelector((store)=> store.player)
-     console.log(currentPlayingSong)
+     let { currentPlayingSong, isPlaying, queue} = useSelector((store)=> store.player)
+     let smallSongArr = []
+     smallSongArr.push(currentPlayingSong)
+  
     let {dispatch} = usePlayerDispatch()
     let data = usePlayer()
+    
+    console.log(queue)
+
+   let nextSong = ()=>{
+     dispatch(playNewSong(queue[1]))
+   }
+
+
+
+
+
+
+
+
   return (
     <div className="w-full bg-black border-t border-[#282828] px-4 py-3 flex items-center justify-between text-white">
       
@@ -27,8 +44,18 @@ const Player = () => {
 
       <div className="flex items-center gap-3 w-[25%]">
         
-             <SideSong/>
-        
+    {
+  smallSongArr?.filter((elem) => elem && elem.url).length > 0 ? (
+    smallSongArr
+      .filter((elem) => elem && elem.url)
+      .map((elem) => (
+        <SideSong key={elem.url} song={elem} />
+      ))
+  ) : (
+    <h1>Play the Song</h1>
+  )
+}
+          
       </div>
 
 
@@ -40,13 +67,21 @@ const Player = () => {
           <FaRandom className="hover:text-white cursor-pointer" />
           <FaStepBackward className="hover:text-white cursor-pointer" />
           
-          <button
+          {
+            isPlaying? <button
           onClick={()=> dispatch(pause())}
+          className="cursor-pointer bg-white text-black p-2 rounded-full hover:scale-105 transition">
+            <FaPause size={14} />
+          </button>: <button
+          onClick={()=> dispatch(play())}
           className="cursor-pointer bg-white text-black p-2 rounded-full hover:scale-105 transition">
             <FaPlay size={14} />
           </button>
+          }
 
-          <FaStepForward className="hover:text-white cursor-pointer" />
+          <FaStepForward
+          onClick={()=>nextSong()}
+          className="hover:text-white cursor-pointer" />
           <FaRedo className="hover:text-white cursor-pointer" />
         </div>
 
