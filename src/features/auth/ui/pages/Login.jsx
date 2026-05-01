@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGoogle, FaFacebookF, FaApple } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import { Logo } from "../../../../shared/utils/logo";
 import { useAppNavigate } from "../../../../shared/hooks/useNavigate";
+import { loginUser } from "../../utils/authStorage.js";
 
 
 const Login = () => {
     let navigate = useAppNavigate()
+    const [email, setEmail] = useState("")
+
+    const handleLogin = () => {
+      const result = loginUser(email)
+
+      if (!result.success) {
+        window.alert(result.message)
+
+        if (result.code === "NO_USERS" || result.code === "NOT_FOUND") {
+          navigate("/register")
+        }
+
+        return
+      }
+
+      navigate("/dashboard")
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        handleLogin()
+      }
+    }
+
   return (
     <div className="min-h-screen   bg-[#121212] flex items-center justify-center text-white">
         
@@ -27,12 +52,18 @@ const Login = () => {
           <input
             type="email"
             placeholder=""
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            onKeyDown={handleKeyDown}
             className="w-full bg-[#121212] border border-gray-600 rounded-md px-3 py-3 focus:outline-none focus:border-white"
           />
         </div>
 
         {/* Continue Button */}
-        <button className="w-full bg-[#1ed760] cursor-pointer text-black font-spotify font-bold py-3 hover:bg-[#3be477] rounded-full hover:scale-[1.02] transition mb-5">
+        <button
+          onClick={handleLogin}
+          className="w-full bg-[#1ed760] cursor-pointer text-black font-spotify font-bold py-3 hover:bg-[#3be477] rounded-full hover:scale-[1.02] transition mb-5"
+        >
           Continue
         </button>
 

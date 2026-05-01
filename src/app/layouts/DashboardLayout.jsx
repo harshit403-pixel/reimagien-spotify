@@ -1,14 +1,23 @@
 import React from 'react'
-import { Outlet } from 'react-router'
+import { Navigate, Outlet } from 'react-router'
 import Navbar from '../../features/dashboard/ui/components/Navbar'
 import { Group, Panel } from 'react-resizable-panels'
-import Player from '../../features/player/ui/component/player'
+import Player from '../../features/player/ui/component/Player.jsx'
 import LeftPanel from '../../features/dashboard/ui/components/LeftPanel'
 import RightPanel from '../../features/dashboard/ui/components/RightPanel'
 import { useSelector } from 'react-redux'
 import { allSongs } from '../../features/dashboard/api/songsApi'
+import {
+  getLoggedInUser,
+  hasRegisteredUsers,
+} from '../../features/auth/utils/authStorage.js'
 
 const DashboardLayout = () => {
+   let loggedInUser = getLoggedInUser()
+   if (!loggedInUser) {
+    return <Navigate replace to={hasRegisteredUsers() ? "/" : "/register"} />
+   }
+
    let { currentPlayingSong} = useSelector((store)=> store.player)
      let smallSongArr = []
      smallSongArr.push(currentPlayingSong)

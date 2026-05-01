@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import { Logo } from "../../../../shared/utils/logo";
 import { useAppNavigate } from "../../../../shared/hooks/useNavigate";
+import { registerUser } from "../../utils/authStorage.js";
 
 const Register = () => {
-
-
     let navigate = useAppNavigate()
-    
+    const [email, setEmail] = useState("")
+
+    const handleRegister = () => {
+      const result = registerUser(email)
+
+      if (!result.success) {
+        window.alert(result.message)
+
+        if (result.code === "ALREADY_EXISTS") {
+          navigate("/")
+        }
+
+        return
+      }
+
+      window.alert("Sign up successful. Please log in.")
+      navigate("/")
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        handleRegister()
+      }
+    }
 
   return (
     <div className="min-h-screen bg-[#121212] flex items-center justify-center text-white font-spotify">
@@ -33,12 +55,18 @@ const Register = () => {
           <input
             type="email"
             placeholder="name@domain.com"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            onKeyDown={handleKeyDown}
             className="w-full bg-[#121212] border border-gray-600 rounded-md px-3 py-3 focus:outline-none focus:border-white"
           />
         </div>
 
         {/* Next Button */}
-        <button className="w-full hover:scale-104 cursor-pointer bg-[#1ed760] text-black font-semibold py-3 rounded-full mb-6  transition">
+        <button
+          onClick={handleRegister}
+          className="w-full hover:scale-104 cursor-pointer bg-[#1ed760] text-black font-semibold py-3 rounded-full mb-6  transition"
+        >
           Next
         </button>
 

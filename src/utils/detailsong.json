@@ -1,0 +1,67 @@
+{
+  "id": "song_naino_ke_saamne",
+  "url": "https://d2it17hzymuzje.cloudfront.net/2ca9003d445c355f12d7f0ae798bb21f6d986724_2iYviYDby.mp3",
+  "title": "Naino Ke Saamne",
+  "artist": "Aditi Singh Sharma, Harmaan Nazim",
+  "album": "Dil Awaara",
+  "year": "2024",
+  "thumbnail": "https://d2it17hzymuzje.cloudfront.net/2ca9003d445c355f12d7f0ae798bb21f6d986724_2iYviYDby.jpg",
+
+  "duration": "3:35",
+  "genre": "Romantic",
+  "language": "Hindi",
+  "description": "A romantic track expressing deep emotional connection through silence and eye contact.",
+
+  "lyrics": [
+    { "time": 16, "text": "Tujhko main kaise bataun" },
+    { "time": 21, "text": "Ye jo ehsaas hai" },
+    { "time": 24, "text": "Dil mein jo dhadkein alag si dhadkanein khaas hai" },
+    { "time": 32, "text": "Bata de zara itna mujhe" },
+    { "time": 35, "text": "Kya main karu" },
+    { "time": 37, "text": "O saathi re" },
+
+    { "time": 39, "text": "Naino ko rehne de" },
+    { "time": 43, "text": "Naino ke saamne" },
+    { "time": 47, "text": "Tu chup rahe" },
+    { "time": 49, "text": "Aur main chup rahun" },
+    { "time": 52, "text": "In naino ko keh jaan de" },
+
+    { "time": 55, "text": "Naino ko rehne de" },
+    { "time": 57, "text": "Naino ke saamne" },
+    { "time": 62, "text": "Tu chup rahe" },
+    { "time": 65, "text": "Aur main chup rahun" },
+    { "time": 67, "text": "In naino ko keh jaan de" },
+
+    { "time": 74, "text": "Ishq dariya ki do lehrein" },
+    { "time": 78, "text": "Ek tum ho ek hum" },
+    { "time": 82, "text": "Aa ishq dariya ki do lehrein" },
+    { "time": 86, "text": "Ek tum ho ek hum" },
+    { "time": 91, "text": "Ik dooje mein jee rahe hain" },
+    { "time": 96, "text": "Ho tum saansein lete kam" },
+
+    { "time": 101, "text": "Sach hai ya phir saamne hai" },
+    { "time": 106, "text": "Sach hai ya phir saamne hai" },
+    { "time": 110, "text": "Khwaabon ke wo sang" },
+    { "time": 115, "text": "Tu kar le yakeen chhoo le mujhe" },
+    { "time": 120, "text": "Kahun main tujhe" },
+    { "time": 124, "text": "O saathi re" },
+
+    { "time": 129, "text": "Naino ko rehne de" },
+    { "time": 133, "text": "Naino ke saamne" },
+    { "time": 136, "text": "Tu chup rahe" },
+    { "time": 139, "text": "Aur main chup rahun" },
+    { "time": 142, "text": "In naino ko keh jaan de" },
+
+    { "time": 146, "text": "Naino ko rehne de" },
+    { "time": 150, "text": "Naino ke saamne" },
+    { "time": 153, "text": "Tu chup rahe" },
+    { "time": 156, "text": "Aur main chup rahun" },
+    { "time": 159, "text": "In naino ko keh jaan de" }
+  ],
+
+  "stats": {
+    "plays": 128540,
+    "likes": 8450,
+    "downloads": 3120
+  }
+}
