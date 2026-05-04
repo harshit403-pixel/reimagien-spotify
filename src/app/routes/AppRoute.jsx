@@ -10,6 +10,7 @@ import DownloadPage from "../../features/dashboard/ui/pages/DownloadPage";
 import NotificationPage from "../../features/dashboard/ui/pages/NotificationPage";
 import LikedSongsPage from "../../features/dashboard/ui/pages/LikedSongsPage";
 import SongDetailes from "../../features/dashboard/ui/pages/SongDetailes";
+import SongDetailsPage from "../../features/dashboard/ui/pages/SongDetailsPage";
 
 const AppRoute = () => {
   const router = createBrowserRouter([
@@ -51,8 +52,14 @@ const AppRoute = () => {
           path: "liked-songs",
           element: <LikedSongsPage />,
         },
-        {path: "lyrics",
-        element:<SongDetailes/> }
+        {
+          path: "songs/:songId",
+          element: <SongDetailsPage />,
+        },
+        {
+          path: "lyrics",
+          element: <SongDetailes />,
+        },
       ],
     },
   ]);

@@ -28,7 +28,7 @@ const DashboardLayout = () => {
      
 
   return (
-    <div className='h-screen bg-black w-screen overflow-x-hidden'>
+    <div className='h-screen bg-black w-screen overflow-hidden'>
       <Navbar/>
 
       <div className='h-[80%]'>

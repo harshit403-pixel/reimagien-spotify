@@ -107,7 +107,7 @@ const Navbar = () => {
           />
         </div>
 
-        <div className="flex items-center w-[500px] mr-20 bg-[#1f1f1f] rounded-full group duration-500 hover:shadow-[0px_0px_0px_1px_white] transition-all ease-in-out px-4 py-2 w-[400px] hover:bg-[#3f3f3f]">
+        <div className="flex items-center w-[450px] mr-20 bg-[#1f1f1f] rounded-full group duration-500 hover:shadow-[0px_0px_0px_1px_white] transition-all ease-in-out px-4 py-2 w-[400px] hover:bg-[#3f3f3f]">
           <FiSearch size={28} className="text-gray-400 mr-3" />
           <div className="flex justify-between w-full">
             <input
